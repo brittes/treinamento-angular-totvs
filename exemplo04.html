@@ -1,0 +1,25 @@
+﻿<html ng-app="myApp">
+	<head>
+		<title>Exemplo 04</title>
+	</head>
+	<body ng-controller="myController">
+		Nome: <input type="text" ng-model="pessoa.nome"></input><br>
+		Idade: <input type="number" ng-model="pessoa.idade"></input><br>
+		Endereco: <input type="text" ng-model="pessoa.endereco.logradouro"></input><br>
+		Complemento: <input type="text" ng-model="pessoa.endereco.complemento"></input><br>
+<h1>{{pessoa}}</h1>
+	</body>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		app.controller('myController', ['$scope', function ($scope) {
+			
+			
+		}]);
+
+
+
+
+	</script>
+</html>

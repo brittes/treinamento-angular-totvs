@@ -1,0 +1,43 @@
+﻿<html ng-app="AppProdutos">
+	<head>
+		<title>Exemplo</title>
+	</head>
+	<body>
+		<h1>Lista de produtos</h1>
+		<ul ng-controller="ProdutoController">
+			<li ng-repeat="x in produtos">
+				{{x.nome}} - {{x.preco}}
+			</li>
+		</ul>
+		<h1>Lista de Servicos</h1>
+		<ul ng-controller="ServicoController">
+			<li ng-repeat="y in servicos">
+				{{y}}
+			</li>
+		</ul>
+	</body>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app = angular.module('AppProdutos', []);
+
+		app.controller('ProdutoController', function ($scope) {
+			
+			$scope.produtos = [
+				{ 'nome': 'Sal', 'preco': 1.50 },
+				{ 'nome': 'Açucar', 'preco': 8.50 },
+				{ 'nome': 'Arroz', 'preco': 5.50 },
+				{ 'nome': 'Feijao', 'preco': 7.50 },
+			];
+		});
+
+		app.controller('ServicoController', function ($scope) {
+			$scope.servicos = [
+				'Servico 1',
+				'Servico 2',
+				'Servico 3',
+			];
+
+		});
+
+	</script>
+</html>

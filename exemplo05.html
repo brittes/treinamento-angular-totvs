@@ -1,0 +1,39 @@
+﻿<html ng-app="myApp">
+	<head>
+		<title>Exemplo 05</title>
+	</head>
+	<body ng-controller="myController">
+		
+	<h1>{{valor | currency }}</h1>
+	<h1>{{data | date:'EEEE MMMM-yyyy' }}</h1>
+	<h1>{{nome | uppercase | limitTo:7 }}</h1>
+
+	{{produtos | orderBy:'-nome'}}
+
+<br><br><br>
+	<input ng-model="produto">
+	<h1>{{produtos | filter:produto}}</h1>
+	
+	</body>
+
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript" src="angular-locale_pt-br.js"></script>
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		app.controller('myController', ['$scope', function ($scope) {
+			
+			$scope.valor = 1.2345;
+			$scope.data = '2016-03-04';
+			$scope.nome = "Diego Centeno";
+
+			$scope.produtos = [
+				{ 'nome': 'Sal', 'preco': 1.50 },
+				{ 'nome': 'Açucar', 'preco': 8.50 },
+				{ 'nome': 'Arroz', 'preco': 5.50 },
+				{ 'nome': 'Feijao', 'preco': 7.50 },
+			];
+			
+		}]);
+	</script>
+</html>
