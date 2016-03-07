@@ -1,0 +1,56 @@
+﻿<html ng-app="listaApp">
+	<head>
+		<title>Lista Compras</title>
+		<link rel="stylesheet" href="lista_compras.css">
+		<link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet">
+	</head>
+	<body ng-controller="listaController">
+		<form>
+			<h1>Lista de Compras</h1>
+			<hr><br>
+				<input type="text" placeholder="Produto" ng-model="nome" />
+				<input type="number" placeholder="Quantidade" step="1" ng-model="quantidade"/>
+				<button type="button" ng-click="inserir()">+</button>
+			<br><br><hr>
+			<ul>
+				<li ng-repeat="l in lista"
+					ng-click="comprar(l)"
+					ng-class="{ comprado : l.comprado==true }">
+					{{l.nome}}  <i>{{l.quantidade}}</i>
+					<img src="images/nok.png"
+						ng-click="remover(l);"
+						ng-hide="l.comprado">
+				</li>
+			</ul>
+		</form>
+	</body>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app = angular.module('listaApp', []);
+
+		app.controller('listaController', ['$scope', function ($scope) {
+			
+			$scope.lista = [];
+
+			$scope.inserir = function(){
+				$scope.lista.push({
+					'nome': $scope.nome,
+					'quantidade': $scope.quantidade,
+					'comprado' : false
+				});
+			};
+
+			$scope.comprar = function(item){
+				item.comprado = true;
+			}
+
+			$scope.remover = function(item){
+				$scope.lista.splice(item);
+			}
+
+		}])
+
+
+
+	</script>
+</html>

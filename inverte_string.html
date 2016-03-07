@@ -1,0 +1,28 @@
+﻿<html ng-app="inverterAPP">
+	<head>
+		<title>Inverte String</title>
+	</head>
+	<body ng-controller="inverterController">
+		<input type="text" ng-model="nome"></input>
+		<button ng-click="inverter()">Inverter</button>
+		<h1 ng-show="nomeInvertido != ''">{{nome}} invertido fica assim: {{nomeInvertido | uppercase}}</h1>
+	</body>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		
+		var app = angular.module('inverterAPP', []);
+
+		app.controller('inverterController', ['$scope', function ($scope) {
+			$scope.nomeInvertido = "";
+
+			$scope.inverter = function(){
+
+				$scope.nomeInvertido = $scope.nome.split("").reverse().join("");
+
+			}
+
+
+		}])
+
+	</script>
+</html>

@@ -1,0 +1,24 @@
+﻿<html ng-app="inverterAPP">
+	<head>
+		<title>Inverte String</title>
+	</head>
+	<body>
+		<input type="text" ng-model="nome"></input>
+		<h1>{{nome | inversor}}</h1>
+	</body>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		
+		var app = angular.module('inverterAPP', []);
+
+		app.filter('inversor', function(){
+			return function(data){
+				if(data)
+					return data.split("").reverse().join("");
+				else
+					data;
+			}
+		})
+
+	</script>
+</html>
