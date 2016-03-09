@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html ng-app="salarioApp">
+<head>
+	<title></title>
+</head>
+<body ng-controller="salarioController">
+	<input ng-model="salario" type="number"></input><br>
+	<button type="button" ng-click="calcular()">Calcular</button>
+	<ul ng-show="resultado">
+		<li>Salario base: {{resultado.base | currency }}</li>
+		<li>Percentual Reajuste: {{resultado.reajuste}}%</li>
+		<li>Valor Reajuste: {{resultado.valor_reajuste  | currency }}</li>
+		<li>Salario Reajustado: {{resultado.total | currency }}</li>
+	</ul>
+</body>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="angular-locale_pt-br.js"></script>
+<script type="text/javascript" src="salario.service.js"></script>
+<script type="text/javascript" src="salario.controller.js"></script>
+<script type="text/javascript">
+	var app = angular.module('salarioApp', [
+		'salarioApp.controllers',
+		'salarioApp.services',
+		]);
+</script>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html ng-app="buscaApp">
+<head>
+	<title></title>
+</head>
+<body ng-controller="BuscaController">
+	<h1>Produtos</h1>
+	<hr>
+	<input type="text" ng-model="filtro"></input>
+	<hr>
+	<ul>
+		<li ng-repeat="p in produtos | buscaNome:filtro">
+			{{p.nome}}
+		</li>
+	</ul>
+</body>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module('buscaApp', []);
+
+	app.controller('BuscaController', ['$scope', function ($scope) {
+		$scope.produtos = [
+			{ 'nome': 'Batata', 'categoria': 'Hortifruti' },
+			{ 'nome': 'Cebola', 'categoria': 'Hortifruti' },
+			{ 'nome': 'Banana', 'categoria': 'Fruta' },
+			{ 'nome': 'Maça', 'categoria': 'Fruta' },
+			{ 'nome': 'Uva', 'categoria': 'Fruta' },
+			{ 'nome': 'Morango', 'categoria': 'Fruta' },
+		];
+	}]);
+
+	app.filter('buscaNome', function(){
+		return function(produtos, filtro){
+			var itens = [];
+			
+			if(filtro == undefined)
+				return produtos;
+
+			produtos.forEach(function(p){
+				if(p.nome.toLowerCase().indexOf(filtro.toLowerCase()) > -1)
+					itens.push(p);
+			});
+
+			return itens;
+		}
+	});
+
+</script>
+</html>
