@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="rotaApp">
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="angular-route.js"></script>
+<script type="text/javascript">
+	
+	angular.module('rotaApp', ['ngRoute'])
+
+	.config(['$routeProvider', function($routeProvider) {
+		
+		$routeProvider.when('/teste/', {
+			templateUrl: 'arquivo.html',
+			controller: 'ArquivoController'
+		});
+	}])
+
+	.controller('ArquivoController', ['$scope', function ($scope) {
+		
+	}])
+
+</script>
+</html>

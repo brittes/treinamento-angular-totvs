@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="cepApp">
+<head>
+	<title></title>
+</head>
+<body ng-controller="cepController">
+<input type="number" ng-model="cep"><br>
+<button type="button" ng-click="pesquisar()">Pesquisar</button>
+<h1>{{endereco.logradouro}} - {{endereco.bairro}}</h1>
+</body>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript">
+	angular.module('cepApp', [])
+
+	.controller('cepController', ['$scope', '$http', function ($scope, $http) {
+		
+		$scope.pesquisar = function(){
+			var url = 'http://cep.correiocontrol.com.br/'+ $scope.cep+'.json'
+
+			$http.get(url).success(function(r){
+				$scope.endereco = r;
+				console.log(r);
+			});
+		}
+	}])
+
+</script>
+</html>
