@@ -1,0 +1,7 @@
+﻿
+<input type="text" ng-model="filtro">
+<ul>
+	<li ng-repeat="r in repositorios | filter:filtro">
+	<a href="#/pesquisa/{{r.name}}">{{r.name}}</a>
+	</li>
+</ul>

@@ -4,7 +4,9 @@
 	<title></title>
 </head>
 <body>
-
+	Header
+	<div ng-view></div>
+	Footer
 </body>
 <script type="text/javascript" src="angular.js"></script>
 <script type="text/javascript" src="angular-route.js"></script>
@@ -15,14 +17,25 @@
 	.config(['$routeProvider', function($routeProvider) {
 		
 		$routeProvider.when('/teste/', {
-			templateUrl: 'arquivo.html',
-			controller: 'ArquivoController'
+			templateUrl: 'route.a.html',
+			controller: 'AController'
 		});
+
+		$routeProvider.when('/teste2/:nome', {
+			templateUrl: 'route.b.html',
+			controller: 'BController'
+		});
+
 	}])
 
-	.controller('ArquivoController', ['$scope', function ($scope) {
+	.controller('AController', ['$scope', function ($scope) {
 		
 	}])
 
+	.controller('BController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+		
+		$scope.nome = $routeParams.nome;
+
+	}])
 </script>
 </html>
