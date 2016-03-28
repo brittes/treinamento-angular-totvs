@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="jquery.css">
+</head>
+<body>
+	<h1>Titulo de teste</h1>
+	
+	<a href="#" alt="Alt de teste">Link de teste</a>
+	<input id="nome" type="text" value="Centeno">
+	<button type="button">Click Me</button>
+	<div style="background-color: Red">
+		<h1>Titulo dentro da DIV</h1>
+	</div>
+	<div id="msg">
+		Mensagem de teste
+	</div>
+</body>
+<script src="http://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	/* Arquivo 1 */
+	function exibeMensagem(){
+		if($('input').val()=='Centeno')
+			console.log('O valor é Centeno');
+		else
+			console.log('Mouse sobre a div');
+	}
+	/* Arquivo 1*/
+
+
+	$(document).ready(function(){
+		
+		/*var div1 = $('div:first');
+
+		$('div h1').html('<i>Titulo novo</i>');
+		$('body h1:first').append(' com append');
+		console.log($('a').attr('alt'));
+		//$('a').attr('href', 'http://google.com');
+		console.log($('#nome').val());
+		$('#nome').val('Diego');
+		div1.css('background-color', 'Blue');
+		console.log(div1.offset());
+		div1.offset({ top: 150 });
+		$('h1:first').addClass('titulo');
+		div1.height('100');
+
+		$('button').click(function(event){
+			alert('Botão clicado.');
+		})
+
+		$('input').focus(function(event){
+			console.log('Input focused');
+		})
+
+		$('input').blur(function(event){
+			console.log('Input blur');
+		})
+
+		$('input').change(function(event){
+			console.log('Input changed');
+		})
+
+		$('input').keypress(function(event){
+			console.log('Tecla pressionada');
+		})
+
+		div1.hover(function(){
+			exibeMensagem();
+		}, function(){
+			console.log('Mouse saiu da div');
+		})
+
+		div1.hide('slow', function(){
+			div1.show('slow');
+		});
+
+		$('#msg').fadeOut(2500, function(){
+			$('#msg').fadeIn(500);
+		});
+*/
+		$('#msg').slideUp(1000, function(){
+			$('#msg').slideDown(1000);
+		});
+
+
+	})
+</script>
+</html>
